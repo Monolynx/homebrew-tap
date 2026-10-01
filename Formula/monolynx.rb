@@ -17,6 +17,7 @@ class Monolynx < Formula
   # gotowego kola dla kazdej platformy/architektury budowanej przez Homebrew - build ze
   # zrodla wymaga toolchainu Rust.
   depends_on "rust" => :build
+  depends_on "libyaml"
   depends_on "python@3.13"
 
   # Bloki `resource` ponizej pokrywaja zaleznosci runtime z cli/pyproject.toml (wraz z
@@ -24,8 +25,6 @@ class Monolynx < Formula
   # Job CI `bump-homebrew` regeneruje je przez `brew update-python-resources` na kazdym tagu
   # cli-vX.Y.Z, a szablon w repo aktualizujemy recznie przy zmianie zaleznosci (test
   # tests/unit/test_bump_formula.py pilnuje, zeby zadna zaleznosc nie zostala bez resource).
-  # pyyaml bez `depends_on "libyaml"`: bez naglowkow libyaml buduje sie czysty Python, a CLI
-  # czyta tylko male pliki konfiguracyjne, wiec rozszerzenie w C nie jest potrzebne.
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
     sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
