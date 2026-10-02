@@ -9,8 +9,8 @@ class Monolynx < Formula
   # url/sha256 wskazuja sdist monolynx-cli z PyPI. Job CI `bump-homebrew` (.gitlab-ci.yml) na
   # kazdym tagu cli-vX.Y.Z podmienia oba pola na dane nowej wersji (cli/scripts/bump_formula.py);
   # wynik jest artefaktem joba, kopie w monorepo aktualizuje czlowiek recznie przez MR.
-  url "https://files.pythonhosted.org/packages/c0/9e/59fa94b7342738441229b5422948de352951916d6a3a031a27b1916df309/monolynx_cli-0.1.0.tar.gz"
-  sha256 "27053bb368489db608e4846843570cff60cb3af3dfa2a7c952a301532f118455"
+  url "https://files.pythonhosted.org/packages/2e/5a/8b0735ab3d2c5f0dd7d000d5aaa8f19c42dcd1ca0c674415c2e963bc8e71/monolynx_cli-0.2.0.tar.gz"
+  sha256 "ad7ecac149020ea3dc33f36dd786ff578a7b7d010234f321eba228efcbc07f57"
   license "MIT"
 
   # pydantic>=2.0 (cli/pyproject.toml) ciagnie pydantic-core, rozszerzenie w Rust bez
@@ -22,9 +22,10 @@ class Monolynx < Formula
 
   # Bloki `resource` ponizej pokrywaja zaleznosci runtime z cli/pyproject.toml (wraz z
   # przechodnimi); `tomli` pomijamy, bo marker python_version < "3.11" nie dotyczy python@3.13.
-  # Job CI `bump-homebrew` regeneruje je przez `brew update-python-resources` na kazdym tagu
-  # cli-vX.Y.Z, a szablon w repo aktualizujemy recznie przy zmianie zaleznosci (test
-  # tests/unit/test_bump_formula.py pilnuje, zeby zadna zaleznosc nie zostala bez resource).
+  # Job CI `bump-homebrew` regeneruje je przez `bump_formula.py --pip-report` (zaleznosci z
+  # raportu pip, url/sha256 sdistow z PyPI) na kazdym tagu cli-vX.Y.Z, a szablon w repo
+  # aktualizujemy recznie przy zmianie zaleznosci (test tests/unit/test_bump_formula.py
+  # pilnuje, zeby zadna zaleznosc nie zostala bez resource).
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
     sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
