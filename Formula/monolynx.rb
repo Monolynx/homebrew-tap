@@ -9,8 +9,8 @@ class Monolynx < Formula
   # url/sha256 wskazuja sdist monolynx-cli z PyPI. Job CI `bump-homebrew` (.gitlab-ci.yml) na
   # kazdym tagu cli-vX.Y.Z podmienia oba pola na dane nowej wersji (cli/scripts/bump_formula.py);
   # wynik jest artefaktem joba, kopie w monorepo aktualizuje czlowiek recznie przez MR.
-  url "https://files.pythonhosted.org/packages/2e/5a/8b0735ab3d2c5f0dd7d000d5aaa8f19c42dcd1ca0c674415c2e963bc8e71/monolynx_cli-0.2.0.tar.gz"
-  sha256 "ad7ecac149020ea3dc33f36dd786ff578a7b7d010234f321eba228efcbc07f57"
+  url "https://files.pythonhosted.org/packages/06/4b/d54eb5d17c9e87ce47408bfab41700b3f7f1f546e33bacb3a1d05b583def/monolynx_cli-0.3.0.tar.gz"
+  sha256 "2982780bfbd7133ef42a107d526d643f2b3b3095ae374635a228f1b49af3c631"
   license "MIT"
 
   # pydantic>=2.0 (cli/pyproject.toml) ciagnie pydantic-core, rozszerzenie w Rust bez
